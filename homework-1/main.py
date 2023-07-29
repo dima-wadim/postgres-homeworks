@@ -7,7 +7,7 @@ conn = psycopg2.connect(
     host='localhost',
     database='north',
     user='postgres',
-    password='azuhin56'
+    password='1611'
 )
 
 def customers_from_csv():
@@ -40,19 +40,19 @@ def orders_from_csv():
 try:
     with conn:
         with conn.cursor() as cur:
-            cur.executemany("INSERT INTO customers VALUES (%s, %s, %s)", customers_from_csv())  #добавление несколько строчек в таблицу
+            cur.executemany("INSERT INTO customers VALUES (%s, %s, %s)", customers_from_csv())
             cur.execute("SELECT * FROM customers")
             rows = cur.fetchall()
             for row in rows:
                 print(row)
                 print()
-            cur.executemany("INSERT INTO employees VALUES (%s, %s, %s, %s, %s, %s)", employees_from_csv())  # добавление несколько строчек в таблицу
+            cur.executemany("INSERT INTO employees VALUES (%s, %s, %s, %s, %s, %s)", employees_from_csv())
             cur.execute("SELECT * FROM employees")
             rows = cur.fetchall()
             for row in rows:
                 print(row)
                 print()
-            cur.executemany("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)", orders_from_csv())  # добавление несколько строчек в таблицу
+            cur.executemany("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)", orders_from_csv())
             cur.execute("SELECT * FROM orders")
             rows = cur.fetchall()
             for row in rows:
