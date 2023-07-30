@@ -1,4 +1,16 @@
 -- SQL-команды для создания таблиц
+-- Создаем таблицу customers
+CREATE TABLE customers
+(
+	customer_id varchar PRIMARY KEY,
+	company_name varchar(100) NOT NULL,
+    contact_name text
+
+);
+
+SELECT * FROM customers;
+
+-- Создаем таблицу employees
 CREATE TABLE employees
 (
 	employee_id int PRIMARY KEY,
@@ -12,16 +24,7 @@ CREATE TABLE employees
 
 SELECT * FROM employees
 
-CREATE TABLE customers
-(
-	customer_id varchar PRIMARY KEY,
-	company_name varchar(100) NOT NULL,
-	contact_name varchar(100) NOT NULL
-
-);
-
-SELECT * FROM customers;
-
+-- Создаем таблицу orders
 CREATE TABLE orders
 (
 	order_id serial PRIMARY KEY,

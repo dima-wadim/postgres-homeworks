@@ -40,18 +40,21 @@ def orders_from_csv():
 try:
     with conn:
         with conn.cursor() as cur:
+            """Создаем строки в таблице customers"""
             cur.executemany("INSERT INTO customers VALUES (%s, %s, %s)", customers_from_csv())
             cur.execute("SELECT * FROM customers")
             rows = cur.fetchall()
             for row in rows:
                 print(row)
                 print()
+            """Создаем строки в таблице employees"""
             cur.executemany("INSERT INTO employees VALUES (%s, %s, %s, %s, %s, %s)", employees_from_csv())
             cur.execute("SELECT * FROM employees")
             rows = cur.fetchall()
             for row in rows:
                 print(row)
                 print()
+            """Создаем строки в таблице orders"""
             cur.executemany("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)", orders_from_csv())
             cur.execute("SELECT * FROM orders")
             rows = cur.fetchall()
